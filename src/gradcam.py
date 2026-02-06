@@ -73,7 +73,7 @@ def main(cfg_path):
     preds = outputs.argmax(1)
 
     outputs.sum().backward()
-    heatmaps = cam.generate().cpu().numpy()
+    heatmaps = cam.generate().detach().cpu().numpy()
 
     fig, axes = plt.subplots(2, 4, figsize=(12, 6))
     for i, ax in enumerate(axes.flat):
