@@ -3,12 +3,14 @@ img_size: 224
 batch_size: 32
 num_workers: 2
 
-model_name: efficientnet_b0   # or resnet18 for speed
 num_epochs: 8
 lr: 0.0003
 weight_decay: 0.0001
-
 freeze_epochs: 2
-device: auto  # auto/cuda/cpu
 
+device: auto
 output_dir: outputs
+
+# For visuals
+num_visuals: 12          # correct & wrong examples each
+num_disagreements: 12    # disagreements to plot
