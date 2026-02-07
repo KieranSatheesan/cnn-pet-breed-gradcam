@@ -159,7 +159,7 @@ def main(cfg_path: str):
 
     out_path = os.path.join(cfg["output_dir"], "compare", "disagreements_gradcam.png")
     plt.tight_layout()
-    plt.savefig(out_path, dpi=200)
+    plt.savefig(out_path, dpi=120)
     plt.close()
     print(f"Saved: {out_path}")
 

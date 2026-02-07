@@ -13,4 +13,4 @@ output_dir: outputs
 
 # For visuals
 num_visuals: 12          # correct & wrong examples each
-num_disagreements: 12    # disagreements to plot
+num_disagreements: 6    # disagreements to plot
