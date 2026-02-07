@@ -1,0 +1,10 @@
+# Large artifacts
+outputs/compare/disagreements_gradcam.png
+outputs/*/*.pt
+outputs/*/predictions.csv
+outputs/*/train_metrics.json
+outputs/*/test_metrics.json
+
+
+#All of ouputs for now
+outputs/
