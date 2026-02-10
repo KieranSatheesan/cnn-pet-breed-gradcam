@@ -9,3 +9,6 @@ outputs/*/test_metrics.json
 #All of ouputs for now
 outputs/
 old_outputs/
+
+src/__pycache__/
+data/
