@@ -58,7 +58,7 @@ Uses compound scaling and channel attention to maximise accuracy per parameter, 
 ![ResNet CM](Images/resnet_cm.png)
 
 ### EfficientNet-B0
-![EfficientNet CM](Imges/effnet_cm.png)
+![EfficientNet CM](Images/effnet_cm.png)
 
 Both models show strong diagonals, indicating high accuracy.
 
