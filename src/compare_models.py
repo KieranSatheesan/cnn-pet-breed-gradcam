@@ -56,15 +56,21 @@ class GradCAM:
 
 def overlay_heatmap(img_u8: np.ndarray, heatmap_2d: np.ndarray, alpha: float = 0.45) -> np.ndarray:
     """
-    Overlay a heatmap onto an RGB uint8 image using matplotlib colormap (no OpenCV dependency).
+    Overlay a Grad-CAM heatmap onto an RGB uint8 image (no OpenCV dependency).
+    Resizes heatmap to match the image before blending.
     """
-    heatmap = heatmap_2d
-    heatmap = np.clip(heatmap, 0, 1)
+    h, w = img_u8.shape[:2]
 
+    # heatmap_2d is typically small (e.g., 7x7). Resize -> (h, w)
+    hm = np.clip(heatmap_2d, 0, 1)
+    hm_img = Image.fromarray((hm * 255).astype(np.uint8)).resize((w, h), resample=Image.BILINEAR)
+    hm = (np.asarray(hm_img).astype(np.float32) / 255.0)  # (h,w) in [0,1]
+
+    # Colorize with a matplotlib colormap
     cmap = plt.get_cmap("jet")
-    hm_rgba = cmap(heatmap)  # HxWx4 floats
-    hm_rgb = (hm_rgba[..., :3] * 255).astype(np.uint8)
+    hm_rgb = (cmap(hm)[..., :3] * 255).astype(np.uint8)  # (h,w,3)
 
+    # Blend with original image
     out = (img_u8.astype(np.float32) * (1 - alpha) + hm_rgb.astype(np.float32) * alpha).astype(np.uint8)
     return out
 
