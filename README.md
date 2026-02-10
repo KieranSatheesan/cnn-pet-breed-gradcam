@@ -256,4 +256,3 @@ Images/  # small curated visuals for README
 ## 👤 Author
 
 Kieran Satheesan  
-Physics BSc — Machine Learning & AI focus  
